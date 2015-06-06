@@ -1,0 +1,25 @@
+<div class="panel-body">
+  <h1 align="center"> Welcome to Support Hero </h1>
+  <h3 align="center"> Today's Date: <%= Date.today %> </h3>
+  <br>
+  <h3>Today's Scheduled Support Hero:</h3>
+  <h4><pre><%= todays_hero %></pre></h4>
+</div>
+
+<table class="table table-striped table-bordered">
+<caption class="text-center">Support Hero Schedule</caption>
+  <thead>
+    <tr>
+      <th class="text-center">Date</th>
+      <th class="text-center">Hero</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shifts.each do |shift| %>
+      <tr>
+        <td class="text-center"><%= shift.date %></td>
+        <td class="text-center"><%= shift.user.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
