@@ -1,5 +1,5 @@
 class Shift < ActiveRecord::Base
-  validates :date, presence: true
+  validates :date, :user_id, presence: true
   validate :date_cannot_be_in_the_past
 
   belongs_to :user
