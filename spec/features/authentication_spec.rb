@@ -9,11 +9,20 @@ describe "the application", type: :feature do
       expect(page).to have_link("Log In")
     end
 
-    scenario 'can visit a login page' do
+    scenario "can visit a login page" do
       visit login_path
-      expect(page).to have_field("name")
-      expect(page).to have_field("password")
+      expect(page).to have_content("Sign In")
+      expect(page).to have_field("Name")
+      expect(page).to have_field("Password")
       expect(page).to have_button("Login!")
+    end
+
+    scenario "does not have a logout link" do
+      expect(page).not_to have_link("Logout")
+    end
+
+    scenario "does not have a link to view the user specific shifts" do
+      expect(page).not_to have_link("View My Shifts")
     end
   end
 end
