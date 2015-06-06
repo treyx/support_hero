@@ -12,4 +12,11 @@ RSpec.describe Shift, :type => :model do
       expect(shift).to_not be_valid
     end
   end
+
+  describe "relationships" do
+    it "belongs to a user" do
+      shift = Shift.create(date: Date.today)
+      expect(shift.user).to be_present
+    end
+  end
 end
