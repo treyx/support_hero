@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Shift, :type => :model do
+RSpec.describe Shift, type: :model do
   let!(:user) { User.create(name: "username") }
   let!(:shift) { Shift.create(date: Date.today, user_id: user.id) }
 
