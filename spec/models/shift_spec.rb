@@ -1,7 +1,9 @@
 require "rails_helper"
 
 RSpec.describe Shift, :type => :model do
-  describe "shift attributes" do
+  let!(:user) { User.create(name: "username") }
+  let!(:shift) { Shift.create(date: Date.today, user_id: user.id) }
+  describe "attributes" do
     it "must have a date" do
       shift = Shift.create(date: nil)
       expect(shift).to_not be_valid
@@ -15,8 +17,8 @@ RSpec.describe Shift, :type => :model do
 
   describe "relationships" do
     it "belongs to a user" do
-      shift = Shift.create(date: Date.today)
       expect(shift.user).to be_present
+      expect(shift.user.name).to eq(user.name)
     end
   end
 end
