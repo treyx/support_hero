@@ -1,0 +1,18 @@
+language: ruby
+cache: bundler
+rvm:
+- 2.2.1
+env:
+- DB=postgresql
+before_script:
+- psql -c 'create database support_hero_test' -U postgres
+script:
+- RAILS_ENV=test bundle exec rake db:test:prepare --trace
+- bundle exec rspec spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: uMwPs8egztuDrN/nqDRiDe+96OTcK5UtjKgWvj2SI3v37/4qPwufJIzmfDFRgK/2ehAa3bIn9/rSN3B43ASqFgLVArjI6w6g1PBAKwLNQpgL8NPsTYiMhreJvt25HMHi7FCCvVorsEzA7D3cVXz3vrilIiCjDMCJDaHSjpLu9T9ax8Inwfhi9PeDCs9COcSuseii6RUfC2EmIkPGrv2y8C/7PrhwhSfxeIE31dBJp/tr01/+CVZ/N13s/vFFAEsX1YUbI18tjCvo90wMIfmI0XhTzQA8eaeaXGnpCkBX7AybGHLltOaW7LDzONbwITFEoa/3Bdh+lyLd+yLw7cE7jjOVqRp+2jdHV00JCrZKm/qyZ4DusRNN9zLSa5Bcq2VdHqUpAcTPl3CvdL6L3ayaKdgiAEJ562g+i691KySyKjLZO1NjEXXxco2sP37ijsBEXKAqkDy1VaG8KvCGZi7B9IeUGOhX6IYcCdqPPdCgO20KZoCf7zzNm3ILmi5rX11oU2Cj3gYHjeM5J6vWO14Kbb0sGZG/oDvNICl9j7/T59mYuWLC/P58GUc1kmk+BcxhEss+Z1OoMUXRHtExTbtvF/w12OCe6JKYbMjscanzaax1OeOeUluyvVm2K2md50AyPdHg54GOywL2QWCi9ttQqHeWbEsgnV5cYgcpVIWr+yE=
+  app: support-hero-app
+  on:
+    repo: treyx/support_hero
