@@ -25,7 +25,7 @@
               <li class="divider"></li>
               <li><%= link_to "View My Shifts", user_path(current_user) %></li>
             <% elsif current_user_is_admin %>
-              <li><%= link_to "Modify Schedule", shifts_new %></li>
+              <li><%= link_to "Modify Schedule", new_shift_path %></li>
             <% end %>
           </ul>
         </li>
