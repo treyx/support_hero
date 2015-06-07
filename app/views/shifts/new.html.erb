@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row vertical-center-row">
+    <div class="col-lg-12">
+      <div class="row ">
+        <div class="col-xs-4 col-xs-offset-4">
+          <h2>Add Shifts</h2>
+            <%= form_tag shifts_path(method: :post) do %>
+              <%= text_area_tag(:heroes, nil, { size: "50x10" }) %>
+              <%= submit_tag "Schedule!", class: "btn btn-success pull-right" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
