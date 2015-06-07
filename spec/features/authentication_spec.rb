@@ -25,4 +25,18 @@ describe "the application", type: :feature do
       expect(page).not_to have_link("View My Shifts")
     end
   end
+
+  context "when logged in" do
+    before(:each) do
+      user = User.create(name: "user", password: "pw")
+      visit login_path
+      fill_in "name", with: user.name
+      fill_in "password", with: user.password
+      click_button "Log In"
+    end
+
+    scenario "has a logout link" do
+      expect(page).to have_link("Logout")
+    end
+  end
 end
