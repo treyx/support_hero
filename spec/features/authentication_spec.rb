@@ -42,12 +42,6 @@ describe "the application", type: :feature do
       click_link_or_button("Logout")
       expect(page).to_not have_link("Logout")
     end
-
-    scenario "it can view its shifts" do
-      expect(page).to have_link("View My Shifts")
-      click_link "View My Shifts"
-      expect(page).to have_content("Your Upcoming Shifts")
-    end
   end
 
   context "invalid credentials" do

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-context "authenticated host", type: :feature do
+context "authenticated admin", type: :feature do
   before(:each) do
     @user = User.create(name: "user", password: "pw", role: 1)
     visit login_path
