@@ -16,7 +16,11 @@
     <% @shifts.each do |shift| %>
       <tr>
         <td class="text-center"><%= shift.date %></td>
-        <td class="text-center"><%= link_to("Mark Unavailable", root_path, class: "btn-sm btn-danger")  %></td>
+        <td class="text-center">
+          <%= form_tag shift_path(shift), method: :put do %>
+            <%= submit_tag "Mark Unavailable", class: "btn-small btn-danger" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
