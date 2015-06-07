@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
   helper_method :todays_hero, :current_user, :current_user_is_hero, :current_user_is_admin
 
   def todays_hero
-    todays_shift = Shift.find_by(date: Date.today)
-    User.find(todays_shift.user_id).name
+    if todays_shift = Shift.find_by(date: Date.today)
+      User.find_by(id: todays_shift.user_id).name
+    end
   end
 
   def current_user

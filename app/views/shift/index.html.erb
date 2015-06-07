@@ -2,7 +2,7 @@
   <h1 align="center"> Welcome to Support Hero </h1>
   <h4 align="center"> Today's Date: <%= Date.today %> </h4>
   <br>
-  <% if !@shifts.empty? %>
+  <% if todays_hero %>
     <h3>Today's Scheduled Support Hero:</h3>
     <h4><pre><%= todays_hero %></pre></h4>
 </div>
