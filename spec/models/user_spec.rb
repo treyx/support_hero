@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  let!(:user) { User.create(name: "username") }
+  let!(:user) { User.create(name: "username", password: "pw") }
 
   describe "attributes" do
     it "must have a name" do

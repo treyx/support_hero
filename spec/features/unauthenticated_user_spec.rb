@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "the unauthenticated user", type: :feature do
   context "when there are shifts scheduled" do
-    let!(:user) { User.create(name: "username") }
+    let!(:user) { User.create(name: "username", password: "pw") }
     let!(:shift) { Shift.create(date: Date.today, user_id: user.id) }
 
     scenario "can see today's schedule from the root" do

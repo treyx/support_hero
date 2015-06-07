@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Shift, type: :model do
-  let!(:user) { User.create(name: "username") }
+  let!(:user) { User.create(name: "username", password: "pw") }
   let!(:shift) { Shift.create(date: Date.today, user_id: user.id) }
 
   describe "attributes" do
@@ -11,7 +11,7 @@ RSpec.describe Shift, type: :model do
     end
 
     it "must have a date in the future" do
-      shift.date = Date.yesterday
+      shift.date = Date.new(2015, 5, 5)
       expect(shift).to_not be_valid
     end
   end
