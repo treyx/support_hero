@@ -6,7 +6,7 @@ describe "the application", type: :feature do
     before(:each) { visit root_path }
 
     scenario "has a login button" do
-      expect(page).to have_link("Log In")
+      expect(page).to have_link("Login")
     end
 
     scenario "can visit a login page" do
