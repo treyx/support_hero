@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      flash[:danger] = "Invalid login."
+      flash[:danger] = "Invalid Login"
       redirect_to :back
     end
   end
