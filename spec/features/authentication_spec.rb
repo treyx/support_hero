@@ -30,9 +30,9 @@ describe "the application", type: :feature do
     before(:each) do
       user = User.create(name: "user", password: "pw")
       visit login_path
-      fill_in "name", with: user.name
-      fill_in "password", with: user.password
-      click_button "Log In"
+      fill_in "Name", with: user.name
+      fill_in "Password", with: user.password
+      click_button "Login!"
     end
 
     scenario "has a logout link" do
