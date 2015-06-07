@@ -38,5 +38,10 @@ describe "the application", type: :feature do
     scenario "has a logout link" do
       expect(page).to have_link("Logout")
     end
+
+    scenario "can logout" do
+      click_link_or_button("Logout")
+      expect(page).to_not have_link("Logout")
+    end
   end
 end
