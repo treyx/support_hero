@@ -28,10 +28,10 @@ describe "the application", type: :feature do
 
   context "when logged in" do
     before(:each) do
-      user = User.create(name: "user", password: "pw")
+      @user = User.create(name: "user", password: "pw")
       visit login_path
-      fill_in "Name", with: user.name
-      fill_in "Password", with: user.password
+      fill_in "Name", with: @user.name
+      fill_in "Password", with: @user.password
       click_button "Login!"
     end
 
@@ -42,6 +42,12 @@ describe "the application", type: :feature do
     scenario "can logout" do
       click_link_or_button("Logout")
       expect(page).to_not have_link("Logout")
+    end
+
+    scenario "it can view its shifts" do
+      expect(page).to have_link("View My Shifts")
+      click_link "View My Shifts"
+      expect(page).to have_content("Here are your shifts, #{@user.name}")
     end
   end
 end
