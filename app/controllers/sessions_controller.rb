@@ -13,4 +13,10 @@ class SessionsController < ApplicationController
       redirect_to :back
     end
   end
+
+  def destroy
+    session[:user_id] = nil
+    flash[:success] = "See you next time!"
+    redirect_to root_path
+  end
 end
