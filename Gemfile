@@ -12,6 +12,7 @@ gem "puma"
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem "bcrypt"
 
 group :development, :test do
   gem "byebug"

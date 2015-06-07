@@ -3,10 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :todays_hero
+  helper_method :todays_hero, :current_user
 
   def todays_hero
     todays_shift = Shift.find_by(date: Date.today)
     User.find(todays_shift.user_id).name
+  end
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
   end
 end

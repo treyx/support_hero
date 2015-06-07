@@ -1,9 +1,10 @@
-<div class="panel-body">
+<div clas="panel-body">
   <h1 align="center"> Welcome to Support Hero </h1>
-  <h3 align="center"> Today's Date: <%= Date.today %> </h3>
+  <h4 align="center"> Today's Date: <%= Date.today %> </h4>
   <br>
-  <h3>Today's Scheduled Support Hero:</h3>
-  <h4><pre><%= todays_hero %></pre></h4>
+  <% if !@shifts.empty? %>
+    <h3>Today's Scheduled Support Hero:</h3>
+    <h4><pre><%= todays_hero %></pre></h4>
 </div>
 
 <table class="table table-striped table-bordered">
@@ -23,3 +24,6 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+  <h4 align="center"> There Are Currently No Scheduled Shifts </h4>
+<% end %>
