@@ -1,7 +1,6 @@
 require "rails_helper"
 
 describe "the application", type: :feature do
-
   context "when logged out" do
     before(:each) { visit root_path }
 
@@ -47,7 +46,20 @@ describe "the application", type: :feature do
     scenario "it can view its shifts" do
       expect(page).to have_link("View My Shifts")
       click_link "View My Shifts"
-      expect(page).to have_content("Here are your shifts, #{@user.name}")
+      expect(page).to have_content("Your Upcoming Shifts")
+    end
+  end
+
+  context "invalid credentials" do
+    let!(:user) { User.create(name: "username", password: "pw") }
+
+    it "cannot log in without a valid password" do
+      visit root_path
+      click_link_or_button("Login")
+      fill_in "Name", with: user.name
+      fill_in "Password", with: "wrong"
+      click_button "Login!"
+      expect(page).to have_content("Invalid Login")
     end
   end
 end
