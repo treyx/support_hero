@@ -1,5 +1,5 @@
 class ShiftDates
-  def initialize(from:)
+  def initialize(from)
     self.from = from
   end
 
