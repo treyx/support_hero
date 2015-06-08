@@ -10,14 +10,27 @@
     <tr>
       <th class="text-center">Date</th>
       <th class="text-center">Mark Unavailable</th>
+      <th class="text-center">Swap With Another User</th>
     </tr>
   </thead>
   <tbody>
     <% @shifts.each do |shift| %>
       <tr>
         <td class="text-center"><%= shift.date %></td>
-        <td class="text-center"><%= link_to("Mark Unavailable", root_path, class: "btn-sm btn-danger")  %></td>
+        <td class="text-center">
+          <%= form_tag shift_path(shift), method: :put do %>
+            <%= submit_tag "Mark Unavailable", class: "btn-small btn-danger" %>
+          <% end %>
+        </td>
+        <td class="text-center">
+          <%= form_tag shift_path(shift), method: :put do %>
+            <%= collection_select( :shift, :user_id, @heroes, :id, :name) %>
+            <%= submit_tag "Swap!" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
