@@ -2,8 +2,8 @@ require "rails_helper"
 
 context "authenticated hero", type: :feature do
   before(:each) do
-    user = User.create(name: "hero-name", password: "pw", role: 0)
-    User.create(name: "hero-2", password: "pw", role: 0)
+    user = User.create(name: "hero-name", password: "pw")
+    User.create(name: "hero-2", password: "pw")
     @shift = Shift.create(date: (Date.today + 1), user_id: user.id)
     visit login_path
     fill_in "Name", with: user.name

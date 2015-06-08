@@ -27,7 +27,7 @@ describe "the application", type: :feature do
 
   context "when logged in" do
     before(:each) do
-      @user = User.create(name: "user", password: "pw", role: 0)
+      @user = User.create(name: "user", password: "pw")
       visit login_path
       fill_in "Name", with: @user.name
       fill_in "Password", with: @user.password
