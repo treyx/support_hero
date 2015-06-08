@@ -5,25 +5,27 @@
   <% if todays_hero %>
     <h3>Today's Scheduled Support Hero:</h3>
     <h4><pre><%= todays_hero %></pre></h4>
+  <% end %>
 </div>
 
-<table class="table table-striped table-bordered">
-<caption class="text-center">Support Hero Schedule</caption>
-  <thead>
-    <tr>
-      <th class="text-center">Date</th>
-      <th class="text-center">Hero</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @shifts.each do |shift| %>
+<% if !@shifts.empty? %>
+  <table class="table table-striped table-bordered">
+  <caption class="text-center">Support Hero Schedule</caption>
+    <thead>
       <tr>
-        <td class="text-center"><%= shift.date %></td>
-        <td class="text-center"><%= shift.user.name %></td>
+        <th class="text-center">Date</th>
+        <th class="text-center">Hero</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<% else %>
-  <h4 align="center"> There Are Currently No Scheduled Shifts </h4>
+    </thead>
+    <tbody>
+      <% @shifts.each do |shift| %>
+        <tr>
+          <td class="text-center"><%= shift.date %></td>
+          <td class="text-center"><%= shift.user.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <h4 align="center"> There Are Currently No Scheduled Shifts </h4>
 <% end %>
