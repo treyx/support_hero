@@ -7,25 +7,30 @@
 
 ### Synopsis
 
-The purpose of this application is to store and display the on-duty schedule for a team. There are administrator and hero accounts. The admin can schedule a block of heroes by inputting an array of names into a form. The heroes are allowed to swap or drop shifts as they please (sounds like a pretty nice job).
+The purpose of this application is to store and display the on-duty schedule for a team. The admin can schedule a block of heroes by inputting an array of names into a form. The heroes are allowed to swap or drop shifts as they please.
 
 ### Installation Steps
 
-* clone down the repository and run `bundle exec rake db:setup`
-* To run a development server just type `rails s Puma`
+* clone this repository and run `bundle && bundle exec rake db:setup`
+* To start a development server run `rails s Puma`
 * The development database is seeded with users and shifts
-* All the passwords are set to `pw` by default. You can chose any user to login as. Names are case sensitive
+* All passwords are set to `pw` by default
   - admin -- login: `admin` password: `pw`
   - hero -- login: `Boris` passwod: `pw`
-* I'm currently using [Travis](https://travis-ci.org/) for deployment to Heroku. To deploy your own production version download the [Heroku Toolbelt](https://toolbelt.heroku.com/) and enter `Heroku Create` from the project root.
-* Here is an array for testing the schedule assignment. Login as an admin and navigate to the shift assignment page.
-
-```['Sherry', 'Boris', 'Vicente', 'Matte', 'Jack', 'Sherry','Matte', 'Kevin', 'Kevin', 'Vicente', 'Zoe', 'Kevin','Matte', 'Zoe', 'Jay', 'Boris', 'Eadon', 'Sherry','Franky', 'Sherry', 'Matte', 'Franky', 'Franky', 'Kevin','Boris', 'Franky', 'Vicente', 'Luis', 'Eadon', 'Boris','Kevin', 'Matte', 'Jay', 'James', 'Kevin', 'Sherry','Sherry', 'Jack', 'Sherry', 'Jack']```
 
 
-### Tests
+* This project is using [Travis](https://travis-ci.org/treyx/support_hero) to build, test, and deploy to Heroku
+* To deploy your own production version download the [Heroku Toolbelt](https://toolbelt.heroku.com/) and run `Heroku Create && Heroku Open`
 
-To run the tests just run `bundle exec rspec`.
+
+* An array for testing the schedule assignment.
+* Login as an admin and navigate to the shift assignment page.
+* ```['Sherry', 'Boris', 'Vicente', 'Matte', 'Jack', 'Sherry','Matte', 'Kevin', 'Kevin', 'Vicente', 'Zoe', 'Kevin','Matte', 'Zoe', 'Jay', 'Boris', 'Eadon', 'Sherry','Franky', 'Sherry', 'Matte', 'Franky', 'Franky', 'Kevin','Boris', 'Franky', 'Vicente', 'Luis', 'Eadon', 'Boris','Kevin', 'Matte', 'Jay', 'James', 'Kevin', 'Sherry','Sherry', 'Jack', 'Sherry', 'Jack']```
+
+
+### Testing
+
+To run the tests just run `bundle exec rspec`
 
 ### License
 
