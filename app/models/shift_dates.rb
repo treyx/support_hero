@@ -7,7 +7,7 @@ class ShiftDates
 
   def each
     return to_enum :each unless block_given?
-    current = from()
+    current = from
     loop do
       yield current if shift? current
       current += 1

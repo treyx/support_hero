@@ -29,6 +29,6 @@ class ShiftsController < ApplicationController
   private
 
   def map_input_by_user_id(sched)
-    sched.scan(/\w+/).map { |name| User.find_by(name: name)}.map(&:id)
+    sched.scan(/\w+/).map { |name| User.find_by(name: name) }.map(&:id)
   end
 end
