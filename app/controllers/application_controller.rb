@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin?
   end
 
-  def select_id_from_available_user
-    User.where("id not in (?)", current_user.id).sample.id
+  def all_users_except_current
+    User.where("id not in (?)", current_user.id)
   end
 end
