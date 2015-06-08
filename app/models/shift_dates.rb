@@ -1,6 +1,6 @@
 class ShiftDates
-  def initialize(from:)
-    self.from = from
+  def initialize(from)
+    self.from = from[:from]
   end
 
   include Enumerable
