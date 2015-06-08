@@ -13,10 +13,13 @@ context "authenticated admin", type: :feature do
     expect(page).to have_link("Modify Schedule")
   end
 
-  xscenario "can add a shift to the schedule" do
+  scenario "can add a shift to the schedule" do
+    user = User.create(name: "Tom", password: "pw", role: 0)
     click_link_or_button("Modify Schedule")
     expect(page).to have_content("Add Shifts")
-    fill_in "heroes", with: "Tom"
+    fill_in "heroes", with: user.name
     click_button "Schedule!"
+    visit root_path
+    expect(page).to have_content("Tom")
   end
 end
