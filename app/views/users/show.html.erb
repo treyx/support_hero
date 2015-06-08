@@ -10,6 +10,7 @@
     <tr>
       <th class="text-center">Date</th>
       <th class="text-center">Mark Unavailable</th>
+      <th class="text-center">Swap With Another User</th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +22,15 @@
             <%= submit_tag "Mark Unavailable", class: "btn-small btn-danger" %>
           <% end %>
         </td>
+        <td class="text-center">
+          <%= form_tag shift_path(shift), method: :put do %>
+            <%= collection_select( :shift, :user_id, @heroes, :id, :name) %>
+            <%= submit_tag "Swap!" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
