@@ -14,6 +14,7 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem "bcrypt"
 gem "holidays"
+gem "simplecov", require: false, group: :test
 
 group :development, :test do
   gem "byebug"
