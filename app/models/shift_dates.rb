@@ -9,8 +9,8 @@ class ShiftDates
     return to_enum :each unless block_given?
     current = from
     loop do
-      yield current if shift? current
-      current += 1
+      yield current[:from] if shift? current[:from]
+      current[:from] += 1
     end
   end
 
