@@ -7,6 +7,10 @@ class ShiftsController < ApplicationController
   end
 
   def create
+    user_ids = map_input_by_user_id(params[:heroes])
+    dates = ShiftDates.new(from: Date.today)
+    user_ids.zip(dates).map { |id, date| Shift.create(date: date, user_id: id) }
+    redirect_to root_path
   end
 
   def update
@@ -20,5 +24,11 @@ class ShiftsController < ApplicationController
 
     flash[:success] = "Enjoy your day off!"
     redirect_to :back
+  end
+
+  private
+
+  def map_input_by_user_id(sched)
+    sched.scan(/\w+/).map { |name| User.find_by(name: name)}.map(&:id)
   end
 end
