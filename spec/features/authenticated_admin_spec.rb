@@ -14,7 +14,7 @@ context "authenticated admin", type: :feature do
   end
 
   scenario "can add a shift to the schedule" do
-    user = User.create(name: "Tom", password: "pw", role: 0)
+    user = User.create(name: "Tom", password: "pw")
     click_link_or_button("Modify Schedule")
     expect(page).to have_content("Add Shifts")
     fill_in "heroes", with: user.name
